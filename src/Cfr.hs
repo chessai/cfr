@@ -1,6 +1,6 @@
 module Cfr
-       ( someFunc
-       ) where
+  ( main
+  ) where
 
-someFunc :: IO ()
-someFunc = putStrLn ("someFunc" :: String)
+main :: IO ()
+main = pure ()
