@@ -2,6 +2,7 @@ module Prelude
   ( module P
   ) where
 
+import GHC.Exts as P (Double)
 import Data.Bits as P (Bits(..))
 import Control.Monad.ST as P (ST, runST)
 import Control.Monad.Primitive as P (PrimMonad(..))

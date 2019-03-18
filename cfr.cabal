@@ -37,6 +37,7 @@ library
   exposed-modules:
     Cfr
     Cfr.Card
+    Cfr.LookupTables
     Cfr.PopCount
   other-modules:
     Prelude                     
