@@ -6,10 +6,10 @@ module Cfr.Card
   ( Card(..)
   , Rank(..)
   , Suit(..)
-  , cardValue
-  , rankValue
-  , showRank
-  , showSuit
+--  , cardValue
+--  , rankValue
+--  , showRank
+--  , showSuit
   ) where
 
 data Card = Card Rank Suit
@@ -29,15 +29,16 @@ data Rank
   | Queen
   | King
   | Ace
-  deriving stock (Eq,Show,Read)
+  deriving stock (Enum,Eq,Show,Read)
 
 data Suit
   = Spades
   | Hearts
   | Diamonds
   | Clubs
-  deriving stock (Eq,Show,Read)
+  deriving stock (Enum,Eq,Show,Read)
 
+{-
 rankValue :: Rank -> Int
 rankValue = \case
   One -> 1
@@ -68,7 +69,6 @@ showSuit = \case
   Diamonds -> "d"
   Clubs -> "c"
 
-{-
 stringToSuit :: String -> Maybe Suit
 stringToSuit s@(readMaybe -> ms) = case ms of
   Nothing -> case s of

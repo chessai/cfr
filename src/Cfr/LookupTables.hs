@@ -34,6 +34,7 @@ module Cfr.LookupTables
   ) where
 
 import Cfr.Card
+import qualified Data.IntMap as IntMap
 
 primes :: [Int]
 primes = [2,3,5,7,11,13,17,19,23,29,31,37,41]
@@ -131,7 +132,7 @@ unsuited_ranks_to_percentile =
   ]
 
 -- Map card rank/suit to binary rep
-card_to_binary_Five :: [[Word]]
+card_to_binary_Five :: [[Int]]
 card_to_binary_Five =
   [ [], []
   , [0, 69634, 73730, 81922, 98306]
@@ -150,7 +151,7 @@ card_to_binary_Five =
   ]
 
 -- Map (flush,value) to rank of flushes in 5-card hands
-flushes :: [Int]
+flushes :: [Double]
 flushes = [
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -996,8 +997,8 @@ unique5 = [
 
 -- Map products of primes from 5-card hands to hand ranks
 -- All of these hands have at least one pair
-pairs :: [(Int,Int)]
-pairs = [
+pairs :: IntMap Int
+pairs = IntMap.fromList $ [
             (48,166), (72,322), (80,165), (108,310), 
             (112,164), (120,2467), (162,154), (168,2466), 
             (176,163), (180,3325), (200,321), (208,162), 
