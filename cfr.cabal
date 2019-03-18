@@ -37,10 +37,13 @@ library
   exposed-modules:
     Cfr
     Cfr.Card
+    Cfr.PopCount
   other-modules:
     Prelude                     
   build-depends:
     , base-noprelude >= 4.10.1.0 && < 4.13
+    , primitive >= 0.6.4
+    , semirings >= 0.3
   ghc-options:
     -Wall
   default-language:
